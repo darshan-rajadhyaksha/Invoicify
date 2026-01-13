@@ -4,7 +4,9 @@
 
 Invoicify lets you generate professional invoices in seconds. Export high-quality PDFs or images with ease. Simple, fast, and hassle-free — perfect for freelancers, small businesses, and startups.
 
----
+**Live Demo -** https://invoicify-d0.netlify.app/
+
+![App Preview](./assets/preview.png)
 
 ## Features
 
@@ -20,8 +22,6 @@ Invoicify lets you generate professional invoices in seconds. Export high-qualit
 - **Multi-Currency & Locale Support**  
   Automatically formats currencies and dates based on locale — ideal for global clients.
 
----
-
 ## Technologies Used
 
 - React  
@@ -29,8 +29,6 @@ Invoicify lets you generate professional invoices in seconds. Export high-qualit
 - React Hook Form  
 - Yup  
 - React-pdf  
-
----
 
 ## Getting Started
 
