@@ -19,6 +19,13 @@ const getStyles = (theme) => ({
 		height: 'calc(100% - 22px)',
 		margin: '10px',
 		borderRadius: '8px',
+		[theme.breakpoints.down('md')]: {
+			width: '100vw',
+			height: '100vh',
+			margin: '0px',
+			borderRadius: '0px',
+			border: 'none',
+		},
 	},
 	toolbarWrapper: {
 		height: '50px',

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Typography, Stack, Card, CardContent, CardActions, Button } from '@mui/joy';
 import { useFormContext, useFieldArray, useWatch } from 'react-hook-form';
 import Add from '@mui/icons-material/Add';
@@ -24,6 +24,20 @@ const InvoiceItems = () => {
 		name: formKey,
 	});
 	const invoiceItems = useWatch({ name: formKey });
+
+	const itemNameInputRef = useRef();
+
+	useEffect(() => {
+		/**
+		 *  Workaround so that Input name will receive focus when modal is open 
+		*/
+		const timeoutId = setTimeout(() => {
+			if(isModalOpen){
+				itemNameInputRef.current?.querySelector("input")?.focus();
+			}
+		}, 0);	
+		return () => clearTimeout(timeoutId);
+	}, [isModalOpen]);
 
 	const invoiceItemErrors = errors?.[formKey]?.[editInvoiceItemIndex];
 
@@ -154,8 +168,8 @@ const InvoiceItems = () => {
 							label="Item name"
 							inputProps={{ 
 								...register(getFormKey("name")),
-								autofocus: true,
 							}}
+							ref={itemNameInputRef}
 							error={!!invoiceItemErrors?.name}
 							helperText={invoiceItemErrors?.name?.message}
 							required

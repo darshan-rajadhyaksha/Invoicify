@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
 import Input from '@mui/joy/Input';
 
-const TextField = (props) => {
+const TextField = forwardRef((props, ref) => {
 	const {
 		label,
     required = false,
@@ -14,6 +15,7 @@ const TextField = (props) => {
 
   return (
     <FormControl 
+      ref={ref}
       error={error}
     >
       <FormLabel 
@@ -30,6 +32,8 @@ const TextField = (props) => {
       </FormHelperText>
     </FormControl>
   );
-};
+});
+
+TextField.displayName = 'TextField';
 
 export default TextField;

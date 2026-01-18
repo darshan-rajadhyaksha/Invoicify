@@ -1,6 +1,6 @@
 import { DesignServices, EditNote, PictureAsPdf, Language } from '@mui/icons-material';
 import { Box, Button, Typography, useTheme } from '@mui/joy';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const getStyles = (theme) => ({
 	header: {
@@ -20,6 +20,9 @@ const getStyles = (theme) => ({
 			width: 'calc(100% - 32px)',
 			maxWidth: '1280px',
 		},
+	},
+	logoLink: {
+		textDecoration: 'none',
 	},
 	gridContainer: {
 		marginBlock: '5vh',
@@ -114,11 +117,17 @@ const Home = () => {
 			>
 				<Box>
 					<Box>
-						<Typography
-							level="title-md"
+						<Link
+							to="/"
+							style={styles.logoLink}
 						>
-							Invoicify
-						</Typography>
+							<Typography
+								level="title-md"
+								component="span"
+							>
+								Invoicify
+							</Typography>
+						</Link>
 					</Box>
 					<Button
 						onClick={handleCreateInvoiceClick}

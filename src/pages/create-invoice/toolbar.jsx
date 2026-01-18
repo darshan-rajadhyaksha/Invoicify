@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Box, Typography, useTheme } from '@mui/joy';
 import { Download } from '@mui/icons-material';
 import Menu from '../../components/menu/';
+import { Link } from 'react-router-dom';
 
 const getStyles = (theme) => ({
 	toolbar: {
@@ -17,6 +18,9 @@ const getStyles = (theme) => ({
 		alignItems: 'center',
 		gap: theme.spacing(1),
 		height: '100%',
+	},
+	logoLink: {
+		textDecoration: 'none',
 	},
 });
 
@@ -40,11 +44,17 @@ const Toolbar = (props) => {
 			sx={styles.toolbar}
 		>
 			<Box>
-				<Typography 
-					level="title-md"
+				<Link
+					to="/"
+					style={styles.logoLink}
 				>
-					Invoicify
-				</Typography>
+					<Typography 
+						level="title-md"
+						component="span"
+					>
+						Invoicify
+					</Typography>
+				</Link>
 			</Box>
 			<Box 
 				sx={styles.actionsContainer}
